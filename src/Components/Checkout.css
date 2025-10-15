@@ -1,0 +1,272 @@
+/* ✅ BASE STYLE */
+.checkout-page {
+  padding: 80px 40px;
+  background: #f8f8f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1f2937;
+}
+
+/* ✅ MAIN CONTENT LAYOUT */
+.checkout-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* ✅ ORDER SUMMARY */
+.checkout-summary {
+  flex: 1;
+  min-width: 320px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-summary h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.checkout-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.checkout-item h4 {
+  font-size: 1rem;
+  color: #222;
+}
+
+.checkout-item p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.summary-row.total {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ✅ BILLING FORM */
+.checkout-form {
+  flex: 1;
+  min-width: 350px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-form h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ✅ SUCCESS MESSAGE */
+.checkout-success {
+  background: #d1fae5;
+  border: 1px solid #10b981;
+  border-radius: 12px;
+  text-align: center;
+  padding: 50px 25px;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.checkout-success h2 {
+  font-size: 2rem;
+  color: #065f46;
+  margin-bottom: 10px;
+}
+
+.checkout-success p {
+  font-size: 1.1rem;
+  color: #047857;
+}
+
+/* 📱 TABLETS (max-width: 992px) */
+@media (max-width: 992px) {
+  .checkout-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .checkout-summary,
+  .checkout-form {
+    width: 95%;
+  }
+
+  .checkout-title {
+    font-size: 2.1rem;
+  }
+}
+
+/* 📱 SMALL TABLETS / LARGE PHONES (max-width: 768px) */
+@media (max-width: 768px) {
+  .checkout-page {
+    padding: 60px 20px;
+  }
+
+  .checkout-title {
+    font-size: 1.9rem;
+  }
+
+  .checkout-summary,
+  .checkout-form {
+    padding: 20px;
+  }
+
+  .checkout-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 0.95rem;
+  }
+
+  .checkout-btn {
+    font-size: 1rem;
+  }
+}
+
+/* 📱 PHONES (max-width: 480px) */
+@media (max-width: 480px) {
+  .checkout-page {
+    padding: 40px 12px;
+  }
+
+  .checkout-title {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+
+  .checkout-summary,
+  .checkout-form {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .checkout-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkout-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .summary-row {
+    font-size: 0.9rem;
+  }
+
+  .checkout-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ✅ ULTRA SMALL DEVICES (max-width: 360px) */
+@media (max-width: 360px) {
+  .checkout-title {
+    font-size: 1.4rem;
+  }
+
+  .checkout-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}

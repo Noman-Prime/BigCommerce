@@ -1,0 +1,186 @@
+/* ===== Page Layout ===== */
+.delivery-issue-page {
+  background-color: #f9fafb;
+  min-height: 100vh;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.delivery-issue-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+.delivery-issue-subtext {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* ===== Form Container ===== */
+.delivery-issue-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* ===== Button ===== */
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ===== Success Message ===== */
+.success-message {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px 25px;
+  border-radius: 15px;
+  background-color: #dcfce7;
+  border: 1px solid #16a34a;
+  color: #065f46;
+  text-align: center;
+}
+
+.success-message h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .delivery-issue-page {
+    padding: 60px 30px;
+  }
+
+  .delivery-issue-title {
+    font-size: 2.2rem;
+  }
+
+  .delivery-issue-form {
+    padding: 30px;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .delivery-issue-page {
+    padding: 50px 20px;
+  }
+
+  .delivery-issue-title {
+    font-size: 2rem;
+  }
+
+  .delivery-issue-subtext {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .delivery-issue-form {
+    padding: 25px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .delivery-issue-page {
+    padding: 40px 15px;
+  }
+
+  .delivery-issue-title {
+    font-size: 1.8rem;
+  }
+
+  .delivery-issue-subtext {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .delivery-issue-form {
+    padding: 20px;
+  }
+
+  .success-message {
+    padding: 30px 18px;
+  }
+
+  .success-message h3 {
+    font-size: 1.6rem;
+  }
+
+  .success-message p {
+    font-size: 1rem;
+  }
+}

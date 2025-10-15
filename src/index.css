@@ -1,0 +1,276 @@
+@import "tailwindcss";
+/* ================= HERO SECTION ================= */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+/* === Main Caption Box === */
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: black;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  width: auto;              /* ✅ allow width to auto-adjust */
+  min-width: 70%;           /* ✅ ensure it’s wide enough for long titles */
+  max-width: 90%;           /* ✅ still responsive */
+  display: inline-block;
+}
+
+/* === Main Title === */
+.hero-title {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 800;
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid black;
+  width: 0ch;
+  animation: typing 3.8s steps(25, end) forwards, blink 0.6s step-end infinite;
+}
+
+/* === Subtitle === */
+.hero-sub {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: 15px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out 4s forwards;
+}
+
+/* === Button === */
+.hero-btn {
+  margin-top: 25px;
+  padding: 12px 30px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 1.2s ease-out 5s forwards;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* === Animations === */
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 25ch; /* adjust based on your longest title length */
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-img {
+    height: 70vh;
+  }
+
+  .carousel-caption {
+    min-width: 85%;
+    padding: 1.5rem 2rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    animation: typing 3.8s steps(20, end) forwards, blink 0.6s step-end infinite;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+  }
+
+  .hero-btn {
+    font-size: 1rem;
+    padding: 10px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+    animation: typing 3.8s steps(18, end) forwards, blink 0.6s step-end infinite;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  .carousel-caption {
+    width: 95%;
+    min-width: unset;
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+
+
+
+/* ========= Product Section ============*/
+/* FILTER AREA (same color & style preserved) */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* --- HAMBURGER BUTTON --- */
+.hamburger-btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #222; /* same as navbar middle section color */
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn:hover {
+  background-color: #000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* FLOATING WITHIN PRODUCT AREA */
+.product-section {
+  position: relative;
+  overflow: visible;
+}
+
+.filter-container {
+  position: sticky;
+  top: 120px; /* keeps it visible while scrolling */
+  z-index: 999;
+  height: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-right: 10px;
+}
+
+/* FILTER PANEL (unchanged) */
+.filter-panel {
+  position: absolute;
+  right: 60px;
+  top: 0;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  border: 1px solid #ddd;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.filter-heading {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Select Box */
+.filter-select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* Apply Button */
+.filter-btn {
+  background-color: #222; /* same as navbar search */
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.filter-btn:hover {
+  background-color: #000;
+}
+
+/* Price Inputs (already good) */
+.price-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.price-inputs input {
+  width: 50%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}

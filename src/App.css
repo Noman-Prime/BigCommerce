@@ -1,0 +1,73 @@
+.footer-link {
+  color: #efeeee;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.social-link {
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #0dcaf0;
+}
+
+/* ✅ Balanced button size (desktop + all screens) */
+.footer .btn {
+  padding: 5px 12px;        /* balanced padding */
+  font-size: 0.85rem;       /* clean small font */
+  border-radius: 6px;       /* smooth rounded corners */
+  width: 200px;
+  min-width: 50px;          /* perfect width */
+  display: inline-block;
+  text-align: center;
+  margin: 4px;
+}
+
+/* Footer responsive design */
+@media (max-width: 992px) {
+  .footer .btn {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer .btn {
+    width: auto;
+    min-width: 90px;
+    margin: 6px auto;
+  }
+
+  .social-icons {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer h6 {
+    font-size: 1rem;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+  }
+
+  .footer .btn {
+    padding: 4px 9px;
+    font-size: 0.8rem;
+    min-width: 85px;
+  }
+}
