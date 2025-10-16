@@ -6,62 +6,86 @@ const Product_1 = ({ products }) => {
   const [category, setCategory] = useState("all");
   const [minimum, setMinimum] = useState("");
   const [maximum, setMaximum] = useState("");
+  const [appliedFilters, setAppliedFilters] = useState({
+    category: "all",
+    min: "",
+    max: "",
+  });
   const [showFilter, setShowFilter] = useState(false);
 
-  const applyFilters = () => {
-    let filteredData = [...products];
-
-    if (category !== "all") {
-      filteredData = filteredData.filter((item) => item.category === category);
-    }
-
-    const minVal = parseFloat(minimum) || 0;
-    const maxVal = parseFloat(maximum) || Infinity;
-
-    filteredData = filteredData.filter(
-      (item) => item.price >= minVal && item.price <= maxVal
-    );
-
-    return filteredData;
+  const handleApplyCategory = () => {
+    setAppliedFilters((prev) => ({
+      ...prev,
+      category,
+    }));
+    setShowFilter(false);
   };
 
-  const handleMouseEnter = () => setShowFilter(true);
-  const handleMouseLeave = () => setShowFilter(false);
-  const toggleFilter = () => setShowFilter((prev) => !prev);
+  const handleClearCategory = () => {
+    setCategory("all");
+    setAppliedFilters((prev) => ({
+      ...prev,
+      category: "all",
+    }));
+  };
 
-  const finalProducts = applyFilters();
+  const handleApplyPrice = () => {
+    setAppliedFilters((prev) => ({
+      ...prev,
+      min: minimum,
+      max: maximum,
+    }));
+    setShowFilter(false);
+  };
+
+  const handleClearPrice = () => {
+    setMinimum("");
+    setMaximum("");
+    setAppliedFilters((prev) => ({
+      ...prev,
+      min: "",
+      max: "",
+    }));
+  };
+
+  const handleClearAll = () => {
+    setCategory("all");
+    setMinimum("");
+    setMaximum("");
+    setAppliedFilters({
+      category: "all",
+      min: "",
+      max: "",
+    });
+  };
+
+  const filteredProducts = products.filter((item) => {
+    const matchCategory =
+      appliedFilters.category === "all" ||
+      item.category === appliedFilters.category;
+    const price = item.price || 0;
+    const minVal = parseFloat(appliedFilters.min) || 0;
+    const maxVal = parseFloat(appliedFilters.max) || Infinity;
+    return matchCategory && price >= minVal && price <= maxVal;
+  });
+
+  const toggleFilter = () => setShowFilter((prev) => !prev);
 
   return (
     <section id="product-section" className="product">
-      {/* Header section */}
       <div className="product-header">
-        <h1>Products</h1>
+        <h1 className="product-title">Products</h1>
 
-        <div
-          className={`filter-wrapper ${showFilter ? "show" : ""}`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onFocus={handleMouseEnter}
-          onBlur={handleMouseLeave}
-        >
-          <button
-            className="filter-btn"
-            aria-label="Filter"
-            onClick={toggleFilter}
-          >
+        <div className={`filter-wrapper ${showFilter ? "show" : ""}`}>
+          <button className="filter-btn" onClick={toggleFilter}>
             <img src="/images/filter-button.png" alt="Filter" />
           </button>
 
-          <div
-            className="filter-dropdown"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onFocus={handleMouseEnter}
-            onBlur={handleMouseLeave}
-          >
-            <label className="fw-semibold mb-2">Category</label>
+          <div className="filter-dropdown">
+            {/* Category Filter */}
+            <label>Category</label>
             <select
-              className="form-select mb-2"
+              className="form-select"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
@@ -72,47 +96,44 @@ const Product_1 = ({ products }) => {
               <option value="electronics">Electronics</option>
             </select>
 
-            <div className="filter-buttons">
-              <button className="btn btn-primary" onClick={applyFilters}>
-                Apply Category
+            <div className="filter-buttons mt-2">
+              <button className="btn btn-primary" onClick={handleApplyCategory}>
+                Apply
               </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => setCategory("all")}
-              >
-                Clear Category
+              <button className="btn btn-outline-danger" onClick={handleClearCategory}>
+                Clear
               </button>
             </div>
 
-            <label className="fw-semibold mb-2 mt-3">Price</label>
+            {/* Price Filter */}
+            <label className="mt-3">Price Range</label>
             <div className="price-inputs">
               <input
                 type="number"
                 placeholder="Min"
-                min="0"
                 value={minimum}
                 onChange={(e) => setMinimum(e.target.value)}
               />
               <input
                 type="number"
                 placeholder="Max"
-                min="0"
                 value={maximum}
                 onChange={(e) => setMaximum(e.target.value)}
               />
             </div>
-            <div className="filter-buttons">
-              <button className="btn btn-primary" onClick={applyFilters}>
-                Apply Price
+
+            <div className="filter-buttons mt-2">
+              <button className="btn btn-primary" onClick={handleApplyPrice}>
+                Apply
               </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => {
-                  setMinimum("");
-                  setMaximum("");
-                }}
-              >
-                Clear Price
+              <button className="btn btn-outline-danger" onClick={handleClearPrice}>
+                Clear
+              </button>
+            </div>
+
+            <div className="filter-buttons mt-3">
+              <button className="btn btn-dark w-100" onClick={handleClearAll}>
+                Clear All Filters
               </button>
             </div>
           </div>
@@ -121,8 +142,8 @@ const Product_1 = ({ products }) => {
 
       {/* Product grid */}
       <div className="product-container">
-        {finalProducts.length > 0 ? (
-          finalProducts.map((p) => (
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((p) => (
             <div key={p.id} className="product-card">
               <img src={p.image} className="card-img" alt={p.title} />
               <div className="card-body">
@@ -138,7 +159,7 @@ const Product_1 = ({ products }) => {
             </div>
           ))
         ) : (
-          <p>No products found.</p>
+          <p className="no-products">No products found.</p>
         )}
       </div>
     </section>

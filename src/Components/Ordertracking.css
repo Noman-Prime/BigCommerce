@@ -1,138 +1,108 @@
-:root {
-  --accent: #007bff;
-  --accent-dark: #0056b3;
-  --text-dark: #222;
-  --text-light: #555;
-  --bg-light: #f9f9f9;
-  --radius: 12px;
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-}
+/* ============================= */
+/* Order Tracking Page Styling */
+/* ============================= */
 
 .tracking-page {
-  font-family: "Inter", sans-serif;
-  background: var(--bg-light);
+  background: #f9fafb;
   min-height: 100vh;
-  padding: 2rem 1rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .tracking-hero {
   background: #fff;
-  padding: 3rem 2rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  max-width: 600px;
-  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 40px 30px;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
 }
 
 .tracking-hero h1 {
-  font-size: 2.5rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
+  color: #1e3a8a;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
 }
 
 .tracking-hero p {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  margin-bottom: 2rem;
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 25px;
 }
 
 .tracking-form {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .tracking-form input {
-  padding: 0.8rem 1rem;
-  border-radius: var(--radius);
-  border: 1px solid #ccc;
-  min-width: 250px;
+  padding: 12px 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
   font-size: 1rem;
-  flex: 1 1 200px;
+  outline: none;
+  transition: 0.3s ease;
 }
 
-.btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 1rem;
+.tracking-form input:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.tracking-form button {
+  background: #1e3a8a;
+  color: white;
   border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
   cursor: pointer;
-  color: #fff;
-  background: var(--accent);
-  box-shadow: var(--shadow);
-  transition: all 0.25s ease;
+  transition: 0.3s ease;
 }
 
-.btn:hover {
-  background: var(--accent-dark);
-  transform: translateY(-2px);
+.tracking-form button:hover {
+  background: #16327c;
 }
 
 .tracking-status {
+  margin-top: 20px;
   font-size: 1rem;
-  color: var(--text-dark);
-  font-weight: 500;
-  margin-top: 1rem;
+  color: #333;
+  background: #f0f4ff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  line-height: 1.5;
 }
 
-/* Responsive Media Queries */
+/* ============================= */
+/* Responsive Design */
+/* ============================= */
+@media (max-width: 480px) {
+  .tracking-hero {
+    padding: 25px 20px;
+  }
 
-/* Small devices (phones, max-width: 576px) */
-@media (max-width: 576px) {
   .tracking-hero h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .tracking-hero p {
-    font-size: 1rem;
-  }
-
-  .tracking-form {
-    flex-direction: column;
-    gap: 0.75rem;
+    font-size: 0.9rem;
   }
 
   .tracking-form input,
-  .btn {
-    width: 100%;
+  .tracking-form button {
     font-size: 0.95rem;
-    padding: 0.7rem 1rem;
-  }
-}
-
-/* Medium devices (tablets, max-width: 768px) */
-@media (max-width: 768px) {
-  .tracking-hero h1 {
-    font-size: 2.2rem;
+    padding: 10px 12px;
   }
 
-  .tracking-hero p {
-    font-size: 1.05rem;
-  }
-
-  .tracking-form input {
-    min-width: 200px;
-  }
-}
-
-/* Large devices (desktops, max-width: 1200px) */
-@media (max-width: 1200px) {
-  .tracking-hero {
-    padding: 2.5rem 2rem;
-  }
-
-  .tracking-form input {
-    min-width: 220px;
-  }
-}
-
-/* Extra Large devices (above 1200px) */
-@media (min-width: 1201px) {
-  .tracking-hero {
-    max-width: 600px;
+  .tracking-status {
+    font-size: 0.9rem;
   }
 }

@@ -20,7 +20,7 @@ const Footer = () => {
             <h6 className="fw-bold mb-3 text-uppercase">Quick Links</h6>
             <ul className="list-unstyled">
               <li><Link to="/" className="footer-link">Home</Link></li>
-              <li><Link to="/products" className="footer-link">Shop</Link></li>
+              <li><Link to="/shop" className="footer-link">Shop</Link></li>
               <li><Link to="/about" className="footer-link">About Us</Link></li>
               <li><Link to="/contact" className="footer-link">Contact</Link></li>
               <li><Link to="/faq" className="footer-link">FAQ</Link></li>
@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="col-12 col-sm-6 col-md-4">
             <h6 className="fw-bold mb-3 text-uppercase">Customer Service</h6>
             <ul className="list-unstyled">
-              <li><Link to="/account" className="footer-link">My Account</Link></li>
+              <li><Link to="/login" className="footer-link">My Account</Link></li>
               <li><Link to="/track-order" className="footer-link">Order Tracking</Link></li>
               <li><Link to="/returns" className="footer-link">Returns & Refunds</Link></li>
               <li><Link to="/shipping" className="footer-link">Shipping Info</Link></li>

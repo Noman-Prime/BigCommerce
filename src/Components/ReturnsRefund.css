@@ -1,0 +1,91 @@
+/* === Returns & Refunds Page Styling === */
+.returns-page {
+  background-color: #f9fafb;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.returns-container {
+  background-color: #fff;
+  padding: 40px 30px;
+  max-width: 900px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.returns-title {
+  font-size: 2rem;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.returns-intro {
+  text-align: center;
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.returns-section {
+  margin-bottom: 30px;
+}
+
+.returns-section h2 {
+  color: #1E3A8A;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.returns-section p {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.returns-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.contact-note {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+a {
+  color: #1E3A8A;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #16327C;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .returns-container {
+    padding: 25px 15px;
+  }
+
+  .returns-title {
+    font-size: 1.6rem;
+  }
+
+  .returns-section h2 {
+    font-size: 1.1rem;
+  }
+}

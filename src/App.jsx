@@ -15,6 +15,10 @@ import Checkout from "./Components/Checkout";
 import About from "./Pages/About";
 import FAQ_page from "./Pages/FAQ_page";
 import Tracking from "./Pages/Tracking";
+import Shop_page from "./Pages/Shop_page";
+import ReturnsRefundPage from "./Pages/ReturnsRefundPage";
+import TermsConditionsPage from "./Pages/TermsConditionsPage";
+import ShippingInfoPage from './Pages/ShippingInfoPage'
 
 
 function App() {
@@ -36,6 +40,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/FAQ" element={<FAQ_page />} />
         <Route path="/track-order" element={<Tracking />} />
+        <Route path="/shop" element={<Shop_page />} />
+        <Route path="/returns" element={<ReturnsRefundPage />} />
+        <Route path="/terms" element={<TermsConditionsPage />} />
+        <Route path="/shipping" element={<ShippingInfoPage />} />
       </Routes>
       
     </>
