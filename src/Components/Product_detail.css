@@ -29,14 +29,17 @@
   transform: translateY(-5px);
 }
 
-/* Image styling */
+/* Image Wrapper for better control */
 .detail-image {
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   border-radius: 15px;
-  background-color: #a39d9d;
-  padding: 20px;
+  background-color: #f3f4f6;
+  padding: 15px;
+  display: block;
+  margin: 0 auto;
   transition: transform 0.3s ease;
 }
 
@@ -47,6 +50,7 @@
 /* Text details */
 .product-info {
   flex: 1;
+  text-align: left;
 }
 
 .product-info h2 {
@@ -73,9 +77,12 @@
 .buttons {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .buttons button {
+  flex: 1;
+  min-width: 130px;
   padding: 12px 24px;
   border-radius: 10px;
   border: none;
@@ -107,17 +114,19 @@
 
 /* ===== Responsive Enhancements ===== */
 
-/* Medium devices (tablets) */
+/* Tablets */
 @media (max-width: 768px) {
   .product-detail .detail-card {
     flex-direction: column;
-    padding: 20px;
-    gap: 20px;
+    padding: 25px;
+    gap: 25px;
+    text-align: center;
   }
 
   .detail-image {
-    width: 100%;
-    height: auto;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    padding: 10px;
   }
 
   .product-info h2 {
@@ -138,10 +147,15 @@
   }
 }
 
-/* Small devices (phones, max-width: 600px) */
+/* Phones */
 @media (max-width: 600px) {
   .product-detail {
     padding: 40px 15px;
+  }
+
+  .detail-image {
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
   }
 
   .product-info h2 {
@@ -157,7 +171,7 @@
   }
 }
 
-/* Extra small devices (phones portrait, max-width: 420px) */
+/* Small phones */
 @media (max-width: 420px) {
   .product-detail {
     padding: 30px 10px;
@@ -166,6 +180,11 @@
   .detail-card {
     padding: 15px;
     gap: 15px;
+  }
+
+  .detail-image {
+    max-width: 180px;
+    aspect-ratio: 1 / 1;
   }
 
   .product-info h2 {
@@ -185,8 +204,13 @@
   }
 }
 
-/* Very small devices (max-width: 360px) */
+/* Very small devices */
 @media (max-width: 360px) {
+  .detail-image {
+    max-width: 150px;
+    aspect-ratio: 1 / 1;
+  }
+
   .product-info h2 {
     font-size: 18px;
   }

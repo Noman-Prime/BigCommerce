@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ReactDOM from "react-dom";
 import "./Navbar.css";
 
 const Navbar = ({ onSearch }) => {
@@ -8,8 +7,6 @@ const Navbar = ({ onSearch }) => {
   const [accountOpen, setAccountOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccountOpen, setMobileAccountOpen] = useState(false);
-  const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
-  const accountRef = useRef(null);
 
   const handleSearch = () => {
     const query = search.trim();
@@ -22,16 +19,6 @@ const Navbar = ({ onSearch }) => {
       }
     }
   };
-
-  useEffect(() => {
-    if (accountOpen && accountRef.current) {
-      const rect = accountRef.current.getBoundingClientRect();
-      setDropdownPos({
-        top: rect.bottom + window.scrollY,
-        left: rect.left + window.scrollX,
-      });
-    }
-  }, [accountOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -77,7 +64,6 @@ const Navbar = ({ onSearch }) => {
           <ul className="topbar-links">
             <li
               className="account-dropdown"
-              ref={accountRef}
               onMouseEnter={() => {
                 if (window.innerWidth > 768) setAccountOpen(true);
               }}
@@ -85,32 +71,22 @@ const Navbar = ({ onSearch }) => {
                 if (window.innerWidth > 768) setAccountOpen(false);
               }}
             >
-              <span>My Account ▼</span>
+              <span>My Account </span>
 
-              {accountOpen &&
-                ReactDOM.createPortal(
-                  <ul
-                    className="dropdown-menu show"
-                    style={{
-                      position: "absolute",
-                      top: dropdownPos.top + "px",
-                      left: dropdownPos.left + "px",
-                      zIndex: 1000,
-                    }}
-                  >
-                    <li>
-                      <Link to="/login" onClick={() => setAccountOpen(false)}>
-                        Login
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/register" onClick={() => setAccountOpen(false)}>
-                        Register
-                      </Link>
-                    </li>
-                  </ul>,
-                  document.body
-                )}
+              {accountOpen && (
+                <ul className="dropdown-menu show">
+                  <li>
+                    <Link to="/login" onClick={() => setAccountOpen(false)}>
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register" onClick={() => setAccountOpen(false)}>
+                      Register
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
 
             <li>
@@ -157,7 +133,7 @@ const Navbar = ({ onSearch }) => {
             </button>
           </div>
 
-          <p className="welcome-text desktop-only">Welcome to BigCommerce!</p>
+          <p className="topbar-text desktop-only">Welcome to BigCommerce!</p>
         </div>
       </header>
 
@@ -265,10 +241,7 @@ const Navbar = ({ onSearch }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div
-          className="mobile-menu-overlay"
-          onClick={closeMobileMenu}
-        ></div>
+        <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>
       )}
     </>
   );
